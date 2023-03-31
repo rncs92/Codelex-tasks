@@ -8,7 +8,7 @@ $field = [
     ['', '', ''],
     ['', '', '']
 ];
-function makeField(array $field) {
+function makeField(array $field): string {
     for ($row = 0; $row < 3; $row++) {
         for ($column = 0; $column < 3; $column++) {
             echo "| {$field[$row][$column]} |";
@@ -59,6 +59,11 @@ while(true)
     echo 'Player ' . $symbol . ' it`s your turn' . PHP_EOL;
     $row = readline('Choose your row cell(0 - 2): ');
     $column = readline('Choose your column cell(0 - 2): ');
+
+    if(!is_numeric($row) || !is_numeric($column) || !isset($row) || !isset($column)) {
+        echo "Invalid input! Choose again.";
+    }
+
     if($field[$row][$column] != '') {
         echo 'That cell is occupied' . PHP_EOL;
         continue;
