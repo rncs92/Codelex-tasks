@@ -51,7 +51,7 @@ function getReminder(int $reminder, array $coins): void
         $times = floor($reminder / $coin);
         if ($times > 0) {
             $displayCoin = $coin / 100;
-            echo "{$displayCoin}eur given." . PHP_EOL;
+            echo "{$displayCoin}eur($times) given." . PHP_EOL;
         }
         $reminder -= $coin * $times;
         $displayReminder2 = $reminder / 100;
