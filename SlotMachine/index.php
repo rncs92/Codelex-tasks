@@ -33,13 +33,11 @@ $valueQ = $gameElements['  Q ']->value;
 $valueK = $gameElements['  K ']->value;
 $valueA = $gameElements['  A ']->value;
 
-
-
-while(true) {
+while (true) {
 
     $input = readline('Do you want to spin? Yes/No: ');
 
-    if(strtolower($input) === 'no') {
+    if (strtolower($input) === 'no') {
         break;
     }
 
@@ -98,12 +96,12 @@ while(true) {
     }
 
     $cashDisplay = $playerCash / 100;
-    $spinDisplay = $spinAmount /100;
+    $spinDisplay = $spinAmount / 100;
     echo PHP_EOL;
     echo "     Bet size: $spinDisplay eur" . PHP_EOL;
     echo "   Your balance: $cashDisplay eur" . PHP_EOL;
 
-    if($playerCash <= 0) {
+    if ($playerCash <= 0) {
         echo 'Insufficient funds!' . PHP_EOL;
         exit;
     }
