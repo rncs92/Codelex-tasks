@@ -1,6 +1,6 @@
 <?php
 
-function salaryCalculator(float $basePay, int $hoursWorked)
+function salaryCalculator(float $basePay, int $hoursWorked): string
 {
     $baseHours = 40;
 

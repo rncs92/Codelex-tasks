@@ -27,3 +27,4 @@ function phoneKeyPad(string $string, array $str): string
 }
 
 echo phoneKeyPad($string, $str);
+echo PHP_EOL;

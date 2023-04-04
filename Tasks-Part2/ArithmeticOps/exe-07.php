@@ -2,8 +2,7 @@
 
 function gravity(float $acceleration, int $time, int $velocity, int $position): float
 {
-    $result = 0.5 * ($acceleration * pow($time, 2)) + ($velocity * $time) + $position;
-    return $result;
+    return 0.5 * ($acceleration * pow($time, 2)) + ($velocity * $time) + $position;
 }
 
 $acceleration = -9.81;

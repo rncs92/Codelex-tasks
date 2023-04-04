@@ -27,7 +27,6 @@ $words = [
 $modified2 = implode(', ', $words);
 echo "Original string array: $modified2" . PHP_EOL;
 
-//todo
 sort($words);
 $sorted2 = implode(', ', $words);
 echo "Sorted string array: $sorted2" . PHP_EOL;

@@ -14,6 +14,3 @@ $number2 = 4;
 
 checkOddEven($number);
 checkOddEven($number2);
-
-//Write a program called CheckOddEven which prints "Odd Number" if the int variable “number” is odd,
-// or “Even Number” otherwise. The program shall always print “bye!” before exiting.

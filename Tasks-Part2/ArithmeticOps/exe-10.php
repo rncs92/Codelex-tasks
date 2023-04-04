@@ -41,7 +41,7 @@ if ($selection == 4) {
     echo 'Bye Bye!' . PHP_EOL;
 }
 
-function circleArea($radius)
+function circleArea(float $radius): float
 {
     if ($radius < 0) {
         return 'You cant use negative radius.';
@@ -50,7 +50,7 @@ function circleArea($radius)
     }
 }
 
-function rectangleArea($length, $width)
+function rectangleArea(float $length, float $width): float
 {
     if ($length < 0 || $width < 0) {
         return 'You cant use negative length or width.';
@@ -59,7 +59,7 @@ function rectangleArea($length, $width)
     }
 }
 
-function triangleArea($base, $height)
+function triangleArea(float $base, float $height): float
 {
     if ($base < 0 || $height < 0) {
         return 'You cant use negative base or height.';

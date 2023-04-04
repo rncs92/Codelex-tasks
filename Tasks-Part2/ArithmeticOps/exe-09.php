@@ -1,6 +1,6 @@
 <?php
 
-function personBMI($weight, $height)
+function personBMI(float $weight, float $height): string
 {
     $convertWeight = $weight * 2.20462;
     $convertHeight = $height * 0.393701;
