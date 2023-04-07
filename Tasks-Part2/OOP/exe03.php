@@ -79,11 +79,16 @@ class Car
     {
         $fuel = $this->fuel;
         $mileage = $this->mileage;
-        for ($i = 0; $i <= (int)$fuel; $i++) {
+
+        while (true) {
             $mileage->accumulate();
             echo "Cars current mileage: {$mileage->getMileage()}" . PHP_EOL;
             $fuel->burn();
             echo "Fuel let: {$fuel->getFuel()}" . PHP_EOL;
+
+            if ($fuel->getFuel() <= 0) {
+                break;
+            }
         }
 
     }
@@ -103,8 +108,6 @@ class Car
 $fuel = new FuelGauge(15.32);
 $fuel->fill(13.33);
 $mileage = new Odometer(394500);
-$mileage->accumulate();
 
 $car = new Car($fuel, $mileage);
 $car->drive();
-//var_dump($car);
