@@ -60,12 +60,19 @@ class DateTest
     public static function run(): void
     {
         $date = new Date (06, 28, 1992);
+        if (!checkdate($date->getMonth(), $date->getDay(), $date->getYear())) {
+            throw new Exception('Not a valid date!');
+        }
 
         echo 'Unmodified date: ';
         echo $date->DisplayDate() . PHP_EOL;
 
         $date->setYear(2023);
         $date->setMonth(11);
+
+        if (!checkdate($date->getMonth(), $date->getDay(), $date->getYear())) {
+            throw new Exception('Not a valid date!');
+        }
 
         echo 'Modified date: ';
         echo $date->DisplayDate() . PHP_EOL;
