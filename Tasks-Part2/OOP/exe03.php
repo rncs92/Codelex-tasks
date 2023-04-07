@@ -3,18 +3,15 @@
 class FuelGauge
 {
     private float $fuel;
-    private int $tankSize;
 
-    public function __construct(float $fuel, int $tankSize = 70)
+    public function __construct(float $fuel)
     {
-
         $this->fuel = $fuel;
-        $this->tankSize = $tankSize;
     }
 
-    public function fillTank(float $addFuel): float
+    public function fill(float $addFuel, int $tankSize = 70): float
     {
-        if ($this->tankSize < $this->fuel + $addFuel) {
+        if ($tankSize < $this->fuel + $addFuel) {
             echo 'Your gas tank dont have enough space.' . PHP_EOL;
         }
 
@@ -27,7 +24,7 @@ class FuelGauge
         return $this->fuel;
     }
 
-    public function burnFuel(): float
+    public function burn(): float
     {
         if ($this->fuel > 0) {
             $this->fuel--;
@@ -43,13 +40,10 @@ class FuelGauge
 class Odometer
 {
     private float $mileage;
-    private float $maxMileage;
 
-    public function __construct(float $mileage, float $maxMileage = 999999)
+    public function __construct(float $mileage)
     {
-
-        $this->mileage = $mileage;
-        $this->maxMileage = $maxMileage;
+        $this->mileage = $mileage;;
     }
 
     public function getMileage(): float
@@ -57,34 +51,60 @@ class Odometer
         return $this->mileage;
     }
 
-    public function setMileage(): void
-    {
-        $this->mileage = 0;
-    }
-
-    public function drive(): ?float
+    public function accumulate(float $maxMileage = 999999): ?float
     {
 
-        if ($this->mileage >= $this->maxMileage) {
+        if ($this->mileage >= $maxMileage) {
             $this->mileage = 0;
         } else {
-            $this->mileage++;
+            $this->mileage += 10;
         }
 
         return $this->mileage;
     }
-
 }
 
-$car1 = new FuelGauge(1.23);
-$car1->fillTank(3.17);
-$car1->burnFuel();
-$car1->burnFuel();
-$car1->burnFuel();
-$car1->burnFuel();
+class Car
+{
+    private FuelGauge $fuel;
+    private Odometer $mileage;
 
-$car2 = new Odometer(999997);
-$car2->drive();
+    public function __construct(FuelGauge $fuel, Odometer $mileage)
+    {
+        $this->fuel = $fuel;
+        $this->mileage = $mileage;
+    }
+
+    public function drive()
+    {
+        $fuel = $this->fuel;
+        $mileage = $this->mileage;
+        for ($i = 0; $i <= (int)$fuel; $i++) {
+            $mileage->accumulate();
+            echo "Cars current mileage: {$mileage->getMileage()}" . PHP_EOL;
+            $fuel->burn();
+            echo "Fuel let: {$fuel->getFuel()}" . PHP_EOL;
+        }
+
+    }
+
+    public function getMileage(): Odometer
+    {
+        return $this->mileage;
+    }
+
+    public function getFuel(): FuelGauge
+    {
+        return $this->fuel;
+    }
+}
 
 
-var_dump($car2);
+$fuel = new FuelGauge(15.32);
+$fuel->fill(13.33);
+$mileage = new Odometer(394500);
+$mileage->accumulate();
+
+$car = new Car($fuel, $mileage);
+$car->drive();
+//var_dump($car);
