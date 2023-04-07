@@ -1,24 +1,20 @@
 <?php
 
-function salaryCalculator(float $basePay, int $hoursWorked): string
+function salaryCalculator(float $basePay, int $hoursWorked, int $baseHours = 40, int $maxHours = 60): string
 {
-    $baseHours = 40;
-
     if ($basePay < 8) {
         return 'The base pay is too small!';
     }
 
-    if ($hoursWorked > 60) {
+    if ($hoursWorked > $maxHours) {
         return 'Work hours exceeded!';
     }
 
-    if ($hoursWorked <= 40) {
+    if ($hoursWorked <= $baseHours) {
         $salary = $baseHours * $basePay;
     } else {
-        $regularHours = 40;
-        $overtimeHours = abs($regularHours - $hoursWorked);
-        $overtimeSalary = $overtimeHours * ($basePay * 1.5);
-        $salary = ($regularHours * $basePay) + $overtimeSalary;
+        $overtimeSalary = abs($baseHours - $hoursWorked) * ($basePay * 1.5);
+        $salary = ($baseHours * $basePay) + $overtimeSalary;
     }
 
     return $salary;
