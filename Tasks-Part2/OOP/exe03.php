@@ -51,13 +51,13 @@ class Odometer
         return $this->mileage;
     }
 
-    public function accumulate(float $maxMileage = 999999): ?float
+    public function accumulate(int $consumption, float $maxMileage = 999999): ?float
     {
 
         if ($this->mileage >= $maxMileage) {
             $this->mileage = 0;
         } else {
-            $this->mileage += 10;
+            $this->mileage += $consumption;
         }
 
         return $this->mileage;
@@ -81,26 +81,16 @@ class Car
         $mileage = $this->mileage;
 
         while (true) {
-            $mileage->accumulate();
+            $mileage->accumulate(10);
             echo "Cars current mileage: {$mileage->getMileage()}" . PHP_EOL;
             $fuel->burn();
             echo "Fuel let: {$fuel->getFuel()}" . PHP_EOL;
 
-            if ($fuel->getFuel() <= 0) {
+            if ($fuel->getFuel() < 1) {
+                echo "You are running low on fuel!" . PHP_EOL;
                 break;
             }
         }
-
-    }
-
-    public function getMileage(): Odometer
-    {
-        return $this->mileage;
-    }
-
-    public function getFuel(): FuelGauge
-    {
-        return $this->fuel;
     }
 }
 
