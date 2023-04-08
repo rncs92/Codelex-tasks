@@ -13,6 +13,7 @@ class FuelGauge
     {
         if ($tankSize < $this->fuel + $addFuel) {
             echo 'Your gas tank dont have enough space.' . PHP_EOL;
+            exit;
         }
 
         $this->fuel += $addFuel;
@@ -81,13 +82,13 @@ class Car
         $mileage = $this->mileage;
 
         while (true) {
+
             $mileage->accumulate(10);
             echo "Cars current mileage: {$mileage->getMileage()}" . PHP_EOL;
             $fuel->burn();
             echo "Fuel let: {$fuel->getFuel()}" . PHP_EOL;
 
             if ($fuel->getFuel() < 1) {
-                echo "You are running low on fuel!" . PHP_EOL;
                 break;
             }
         }
@@ -100,4 +101,10 @@ $fuel->fill(13.33);
 $mileage = new Odometer(394500);
 
 $car = new Car($fuel, $mileage);
-$car->drive();
+
+$fuel2 = new FuelGauge(0);
+$fuel2->fill(70);
+$mileage2 = new Odometer(999988);
+
+$car2 = new Car($fuel2, $mileage2);
+$car2->drive();
