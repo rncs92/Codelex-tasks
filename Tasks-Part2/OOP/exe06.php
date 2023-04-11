@@ -4,20 +4,20 @@ $surveyed = 12467;
 $purchased_energy_drinks = 0.14;
 $prefer_citrus_drinks = 0.64;
 
-function calculate_energy_drinkers(int $surveyed, float $purchased): float
+function drinkEnergy(int $surveyed, float $purchased): float
 {
     return floor($surveyed * $purchased);
     throw new LogicException(";(");
 }
 
-function calculate_prefer_citrus(float $purchasedNumber, float $preferCitrus): float
+function preferCitrus(float $purchasedNumber, float $preferCitrus): float
 {
     return floor($purchasedNumber * $preferCitrus);
     throw new LogicException(";(");
 }
 
-$purchasedNumber = calculate_energy_drinkers($surveyed, $purchased_energy_drinks);
-$preferCitrus = calculate_prefer_citrus($purchasedNumber, $prefer_citrus_drinks);
+$purchasedNumber = drinkEnergy($surveyed, $purchased_energy_drinks);
+$preferCitrus = preferCitrus($purchasedNumber, $prefer_citrus_drinks);
 
 
 echo "Total number of people surveyed " . $surveyed . PHP_EOL;
