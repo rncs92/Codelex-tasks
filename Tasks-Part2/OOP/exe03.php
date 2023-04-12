@@ -4,7 +4,7 @@ class FuelGauge
 {
     private float $fuel;
 
-    public function __construct(float $fuel)
+    public function __construct(float $fuel = 0)
     {
         $this->fuel = $fuel;
     }
