@@ -25,9 +25,10 @@ class Dog
     {
         if ($this->father == null) {
             return 'Unknown';
-        } else {
-            return $this->father->name;
         }
+
+        return $this->father->name;
+
     }
 
     public function setFather(?Dog $father): void
