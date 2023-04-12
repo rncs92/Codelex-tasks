@@ -2,15 +2,23 @@
 
 class Application
 {
-    function run()
+    private VideoStore $videoStore;
+
+    public function __construct(VideoStore $videoStore)
+    {
+        $this->videoStore = $videoStore;
+    }
+
+    public function run(): void
     {
         while (true) {
             echo "Choose the operation you want to perform \n";
             echo "Choose 0 for EXIT\n";
             echo "Choose 1 to fill video store\n";
             echo "Choose 2 to rent video (as user)\n";
-            echo "Choose 3 to return video (as user)\n";
-            echo "Choose 4 to list inventory\n";
+            echo "Choose 3 to rate video (as user)\n";
+            echo "Choose 4 to return video (as user)\n";
+            echo "Choose 5 to list inventory\n";
 
             $command = (int)readline();
 
@@ -19,16 +27,19 @@ class Application
                     echo "Bye!" . PHP_EOL;
                     die;
                 case 1:
-                    $this->add_movies();
+                    $this->add();
                     break;
                 case 2:
-                    $this->rent_video();
+                    $this->rent();
                     break;
                 case 3:
-                    $this->return_video();
+                    $this->rate();
                     break;
                 case 4:
-                    $this->list_inventory();
+                    $this->return();
+                    break;
+                case 5:
+                    $this->listInventory();
                     break;
                 default:
                     echo "Sorry, I don't understand you..";
@@ -36,23 +47,46 @@ class Application
         }
     }
 
-    private function add_movies()
+    private function add()
+    {
+        $video = readline('Add title of the movie you want to add: ');
+        $this->videoStore->addMovie($video);
+        echo 'Thank you, movie added!' . PHP_EOL;
+    }
+
+    private function rent()
+    {
+        $this->videoStore->echoAll();
+
+        $rent = (int)readline('Type in the ID of video you want to rent: ');
+
+        $this->videoStore->checkOut($rent);
+
+    }
+
+    private function rate()
+    {
+        $this->videoStore->echoAll();
+
+        $movieID = (int)readline('Please choose movie ID, that you want to rate: ');
+        if (!array_key_exists($movieID, $this->videoStore->getVideos())) {
+            echo 'Wrong ID entered.' . PHP_EOL;
+            return;
+        }
+
+        $userRating = (int)readline('Please add your rating: ');
+        $this->videoStore->rate($movieID, $userRating);
+
+        echo 'Thank you, rating added!' . PHP_EOL;
+    }
+
+    private function return()
     {
 
     }
 
-    private function rent_video()
+    private function listInventory()
     {
-        $rent = readline('Type in the title of video you want to rent: ');
-    }
-
-    private function return_video()
-    {
-        //todo
-    }
-
-    private function list_inventory()
-    {
-        //todo
+        $this->videoStore->echoAll();
     }
 }
