@@ -78,10 +78,11 @@ class Car
 
     public function drive()
     {
+        $model = readline('What is the model of your car? ');
         while ($this->fuel->getFuel() > 0) {
 
             $this->mileage->accumulate(1);
-            echo "Cars current mileage: {$this->mileage->getMileage()} miles" . PHP_EOL;
+            echo "$model current mileage: {$this->mileage->getMileage()} miles" . PHP_EOL;
             $this->fuel->burn(0.1);
             echo "Fuel let: {$this->fuel->getFuel()} liters" . PHP_EOL;
             sleep(1);
