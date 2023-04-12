@@ -47,14 +47,14 @@ class Application
         }
     }
 
-    private function add()
+    private function add(): void
     {
         $video = readline('Add title of the movie you want to add: ');
         $this->videoStore->addMovie($video);
         echo 'Thank you, movie added!' . PHP_EOL;
     }
 
-    private function rent()
+    private function rent(): void
     {
         $this->videoStore->echoAll();
 
@@ -64,7 +64,7 @@ class Application
 
     }
 
-    private function rate()
+    private function rate(): void
     {
         $this->videoStore->echoAll();
 
@@ -82,10 +82,12 @@ class Application
 
     private function return()
     {
-
+        $this->videoStore->echoAll();
+        $movieID = (int)readline('Enter the ID of the movie you want to return: ');
+        $this->videoStore->checkIn($movieID);
     }
 
-    private function listInventory()
+    private function listInventory(): void
     {
         $this->videoStore->echoAll();
     }

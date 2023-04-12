@@ -13,14 +13,14 @@ class Video
         $this->rating = $rating;
     }
 
-    public function rent()
+    public function rent(): bool
     {
-        $this->available = false;
+        return $this->available = false;
     }
 
-    public function return()
+    public function return(): bool
     {
-        $this->available = true;
+        return $this->available = true;
     }
 
     public function getTitle(): string
