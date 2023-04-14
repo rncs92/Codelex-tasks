@@ -53,5 +53,6 @@ $moviesPG = Movie::GetPG($movies);
 
 echo "Movies with 'PG' rating: " . PHP_EOL;
 foreach ($moviesPG as $movie) {
+    /** @var Movie $movie */
     echo "{$movie->getTitle()}, {$movie->getStudio()}, {$movie->getRating()}." . PHP_EOL;
 }
