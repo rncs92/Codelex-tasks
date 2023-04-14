@@ -24,12 +24,13 @@ class Application
 
 
             $command = (int)readline();
+            if ($command == 0) {
+                echo 'Bye!' . PHP_EOL;
+                die;
+            }
             $city = readline('Enter the city: ');
 
             switch ($command) {
-                case 0:
-                    echo "Bye!" . PHP_EOL;
-                    die;
                 case 1:
                     $this->weather($city);
                     break;
