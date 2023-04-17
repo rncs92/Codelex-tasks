@@ -9,15 +9,15 @@ class Business
     private string $type;
     private string $address;
     private string $registered;
-    private string $terminated;
+    private ?string $terminated;
 
     public function __construct(
-        string $name,
-        int    $regCode,
-        string $type,
-        string $address,
-        string $registered,
-        string $terminated
+        string  $name,
+        int     $regCode,
+        string  $type,
+        string  $address,
+        string  $registered,
+        ?string $terminated
     )
     {
         $this->name = $name;

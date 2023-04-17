@@ -6,11 +6,11 @@ use Carbon\Carbon;
 
 class Application
 {
-    private ApiClient $client;
+    private Registry $registry;
 
-    public function __construct(ApiClient $client)
+    public function __construct(Registry $registry)
     {
-        $this->client = $client;
+        $this->registry = $registry;
     }
 
     public function run(): void
@@ -52,8 +52,7 @@ class Application
 
     private function list(): void
     {
-        $data = $this->client->getData();
-        foreach ($data->result->records as $business) {
+        foreach ($this->registry->getBusinesses() as $business) {
             echo $business->name . PHP_EOL;
             echo 'ReģNr: ' . $business->regcode . PHP_EOL;
             echo '..............................................' . PHP_EOL;
@@ -62,8 +61,7 @@ class Application
 
     private function active(): void
     {
-        $data = $this->client->getData();
-        foreach ($data->result->records as $business) {
+        foreach ($this->registry->getBusinesses() as $business) {
             if ($business->terminated == null) {
                 echo $business->name . PHP_EOL;
                 echo 'Dibināts: ' . Carbon::parse($business->registered)->isoFormat('LLLL') . PHP_EOL;
@@ -75,8 +73,7 @@ class Application
 
     private function terminated(): void
     {
-        $data = $this->client->getData();
-        foreach ($data->result->records as $business) {
+        foreach ($this->registry->getBusinesses() as $business) {
             if ($business->terminated !== null) {
                 echo $business->name . PHP_EOL;
                 echo 'ReģNr: ' . $business->regcode . PHP_EOL;
@@ -89,8 +86,7 @@ class Application
     private function search(): void
     {
         $regCode = readline('Ievadiet uzņēmuma ReģNr: ');
-        $data = $this->client->getData();
-        foreach ($data->result->records as $business) {
+        foreach ($this->registry->getBusinesses() as $business) {
             if ($regCode == $business->regcode) {
                 echo '..............................................' . PHP_EOL;
                 echo $business->name . PHP_EOL;
