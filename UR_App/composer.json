@@ -1,0 +1,14 @@
+{
+  "name": "janis/ur_app",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "require": {
+    "guzzlehttp/guzzle": "^7.5",
+    "ext-json": "*",
+    "ext-readline": "*",
+    "nesbot/carbon": "^2.66"
+  }
+}
