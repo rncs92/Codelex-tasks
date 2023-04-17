@@ -17,8 +17,6 @@ class Registry
     {
         return $this->businesses;
     }
-
-    
 }
 
 
