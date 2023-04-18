@@ -17,6 +17,15 @@ class Registry
     {
         return $this->businesses;
     }
+
+    public function getRegcode(): array
+    {
+        $regcode = [];
+        foreach ($this->businesses as $business) {
+            $regcode[] = $business->regcode;
+        }
+        return $regcode;
+    }
 }
 
 

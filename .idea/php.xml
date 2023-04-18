@@ -12,29 +12,21 @@
   </component>
   <component name="PhpIncludePathManager">
     <include_path>
+      <path value="$PROJECT_DIR$/WeatherReport/vendor/composer" />
       <path value="$PROJECT_DIR$/UR_App/vendor/ralouphie/getallheaders" />
-      <path value="$PROJECT_DIR$/UR_App/vendor/psr/http-message" />
-      <path value="$PROJECT_DIR$/UR_App/vendor/psr/http-client" />
-      <path value="$PROJECT_DIR$/UR_App/vendor/psr/http-factory" />
       <path value="$PROJECT_DIR$/UR_App/vendor/guzzlehttp/psr7" />
-      <path value="$PROJECT_DIR$/UR_App/vendor/symfony/deprecation-contracts" />
       <path value="$PROJECT_DIR$/UR_App/vendor/guzzlehttp/promises" />
       <path value="$PROJECT_DIR$/UR_App/vendor/guzzlehttp/guzzle" />
       <path value="$PROJECT_DIR$/UR_App/vendor/composer" />
-      <path value="$PROJECT_DIR$/WeatherReport/vendor/composer" />
-      <path value="$PROJECT_DIR$/WeatherReport/vendor/psr/http-message" />
-      <path value="$PROJECT_DIR$/WeatherReport/vendor/ralouphie/getallheaders" />
-      <path value="$PROJECT_DIR$/WeatherReport/vendor/psr/http-client" />
-      <path value="$PROJECT_DIR$/WeatherReport/vendor/guzzlehttp/psr7" />
-      <path value="$PROJECT_DIR$/WeatherReport/vendor/psr/http-factory" />
-      <path value="$PROJECT_DIR$/WeatherReport/vendor/guzzlehttp/promises" />
-      <path value="$PROJECT_DIR$/WeatherReport/vendor/symfony/deprecation-contracts" />
-      <path value="$PROJECT_DIR$/WeatherReport/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/UR_App/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/UR_App/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/UR_App/vendor/psr/http-factory" />
       <path value="$PROJECT_DIR$/UR_App/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/UR_App/vendor/symfony/polyfill-php80" />
       <path value="$PROJECT_DIR$/UR_App/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/UR_App/vendor/symfony/deprecation-contracts" />
       <path value="$PROJECT_DIR$/UR_App/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/UR_App/vendor/symfony/translation-contracts" />
-      <path value="$PROJECT_DIR$/UR_App/vendor/symfony/polyfill-php80" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4">

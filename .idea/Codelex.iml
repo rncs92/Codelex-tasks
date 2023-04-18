@@ -13,6 +13,15 @@
       <excludeFolder url="file://$MODULE_DIR$/UR_App/vendor/symfony/polyfill-php80" />
       <excludeFolder url="file://$MODULE_DIR$/UR_App/vendor/symfony/translation" />
       <excludeFolder url="file://$MODULE_DIR$/UR_App/vendor/symfony/translation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/UR_App/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/UR_App/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/UR_App/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/UR_App/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/UR_App/vendor/psr/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/UR_App/vendor/psr/http-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/UR_App/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/UR_App/vendor/ralouphie/getallheaders" />
+      <excludeFolder url="file://$MODULE_DIR$/UR_App/vendor/symfony/deprecation-contracts" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

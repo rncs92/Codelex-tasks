@@ -55,7 +55,7 @@ class Application
         foreach ($this->registry->getBusinesses() as $business) {
             echo $business->name . PHP_EOL;
             echo 'ReģNr: ' . $business->regcode . PHP_EOL;
-            echo '..............................................' . PHP_EOL;
+            echo '........................................................' . PHP_EOL;
         }
     }
 
@@ -66,7 +66,7 @@ class Application
                 echo $business->name . PHP_EOL;
                 echo 'Dibināts: ' . Carbon::parse($business->registered)->isoFormat('LLLL') . PHP_EOL;
                 echo 'ReģNr: ' . $business->regcode . PHP_EOL;
-                echo '..............................................' . PHP_EOL;
+                echo '........................................................' . PHP_EOL;
             }
         }
     }
@@ -78,7 +78,7 @@ class Application
                 echo $business->name . PHP_EOL;
                 echo 'ReģNr: ' . $business->regcode . PHP_EOL;
                 echo 'Likvidēts: ' . Carbon::parse($business->terminated)->isoFormat('LLLL') . PHP_EOL;
-                echo '..............................................' . PHP_EOL;
+                echo '........................................................' . PHP_EOL;
             }
         }
     }
@@ -86,9 +86,15 @@ class Application
     private function search(): void
     {
         $regCode = readline('Ievadiet uzņēmuma ReģNr: ');
+        if (!in_array($regCode, $this->registry->getRegcode())) {
+            echo 'Ievadīts nepareizs reģistrācijas numurs!' . PHP_EOL;
+        } else {
+            echo 'Uzņēmums atrasts!' . PHP_EOL;
+        }
+
         foreach ($this->registry->getBusinesses() as $business) {
             if ($regCode == $business->regcode) {
-                echo '..............................................' . PHP_EOL;
+                echo '........................................................' . PHP_EOL;;
                 echo $business->name . PHP_EOL;
                 echo 'ReģNr: ' . $business->regcode . PHP_EOL;
                 echo 'Tips: ' . $business->type . PHP_EOL;
@@ -99,7 +105,7 @@ class Application
                     echo 'Likvidēts: ' . Carbon::parse($business->terminated)->isoFormat('LLLL') . PHP_EOL;
                 }
                 echo 'Adrese: ' . $business->address . PHP_EOL;
-                echo '..............................................' . PHP_EOL;
+                echo '........................................................' . PHP_EOL;
             }
         }
     }

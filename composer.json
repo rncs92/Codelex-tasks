@@ -1,0 +1,9 @@
+{
+    "name": "janis/codelex",
+    "autoload": {
+        "psr-4": {
+            "Janis\\Codelex\\": "src/"
+        }
+    },
+    "require": {}
+}
